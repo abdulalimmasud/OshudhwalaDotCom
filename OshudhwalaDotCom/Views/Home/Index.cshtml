@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Common.cshtml";
+}
+
+<link href="~/Content/HomePage.css" rel="stylesheet" />
+<div class="diy-slideshow">
+    <figure class="show">
+        <img src="~/Image/SlideShow/mother&baby.jpg" alt="Mother's and Baby care" width="100%" />
+        <figcaption>24 hr Mother's and Baby care</figcaption>
+    </figure>
+    <figure>
+        <img src="~/Image/SlideShow/personal-care.jpg" alt="Personal Care" width="100%" />
+        <figcaption>Take care of your health</figcaption>
+    </figure>
+    <figure>
+        <img src="~/Image/SlideShow/eye-care.png" alt="Eye Care" width="100%" />
+        <figcaption>Eye care</figcaption>
+    </figure>
+    <figure>
+        <img src="~/Image/SlideShow/first aid.jpg" alt="First Aid" width="100%" />
+        <figcaption>Your Instance Medicine</figcaption>
+    </figure>
+    <figure>
+        <img src="~/Image/SlideShow/diabetic.jpg" alt="Diabetes" width="100%" />
+        <figcaption>Say Bye Bye to Diabetes</figcaption>
+    </figure>
+    <figure>
+        <img src="~/Image/SlideShow/Protein-Diet-Foods.jpg" alt="Protien-Diet" width="100%" />
+        <figcaption>Take Protien for your strong health</figcaption>
+    </figure>
+    <span class="prev">«</span>
+    <span class="next">»</span>
+</div>
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var counter = 0,
+        $items = $('.diy-slideshow figure'),
+        numItems = $items.length;
+
+        var showCurrent = function () {
+            var itemToShow = Math.abs(counter % numItems);
+            $items.removeClass('show');
+            $items.eq(itemToShow).addClass('show');
+        };
+        $('.next').on('click', function () {
+            counter++;
+            showCurrent();
+        });
+
+        $('.prev').on('click', function () {
+            counter--;
+            showCurrent();
+        });
+
+        var myIndex = 0;
+        $(function () {
+            var x = $("figure[img]").val();
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {
+                myIndex = 1;
+            }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(showCurrent, 2000);
+        })
+
+        if ('ontouchstart' in window) {
+            $(".diy-slideshow").swipe({
+                swipeLeft: function () {
+                    counter++;
+                    showCurrent();
+                },
+                swipeRight: function () {
+                    counter--;
+                    showCurrent();
+                }
+            });
+        }
+    });
+</script>

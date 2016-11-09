@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html style="min-width:800px;">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Common.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="login-div">@Html.Partial("_LoginPartial")</div>
+        <div class="hadear-container">
+            <div class="logo">
+                <img width="180" height="150" src="~/Image/logo.png" />
+            </div>
+            <div class="header-nav">
+                <ul class="nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>
+                        @Html.ActionLink("Medicine Order", "", "")
+                        <ul>
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("User Panel", "", "")</li>
+                    <li>@Html.ActionLink("Analytics", "", "")</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <nav class="nav-class">
+        <ul>
+            <li>
+                @Html.ActionLink("Baby & Mother", "", "")
+                <ul>
+                    <li>@Html.ActionLink("Baby's Diapers", "", "")</li>
+                    <li>@Html.ActionLink("Feeding & Nursing", "", "")</li>
+                    <li>@Html.ActionLink("Gift & Accessories", "", "")</li>
+                    <li>@Html.ActionLink("Health & Safety", "", "")</li>
+                    <li>@Html.ActionLink("Nutrition", "", "")</li>
+                    <li>@Html.ActionLink("Personal Care", "", "")</li>
+                </ul>
+            </li>
+            <li>
+                @Html.ActionLink("Personal Care", "", "")
+                <ul>
+                    <li>@Html.ActionLink("Skin Care ", "", "")</li>
+                    <li>@Html.ActionLink("Bath & Body", "", "")</li>
+                    <li>@Html.ActionLink("Adult Care", "", "")</li>
+                    <li>@Html.ActionLink("Feminine Care", "", "")</li>
+                    <li>@Html.ActionLink("Fragnance", "", "")</li>
+                    <li>@Html.ActionLink("Hair Care", "", "")</li>
+                    <li>@Html.ActionLink("Hand & Foot Care", "", "")</li>
+                    <li>@Html.ActionLink("Home Hygiene", "", "")</li>
+                    <li>@Html.ActionLink("Oral Care", "", "")</li>
+                    <li>@Html.ActionLink("Shaving & Hair Removal", "", "")</li>
+                    <li>@Html.ActionLink("Beauty", "", "")</li>
+                </ul>
+            </li>
+            <li>
+                @Html.ActionLink("Eye Care", "", "")
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </li>
+            <li>@Html.ActionLink("Sexual Wellness", "", "")</li>
+            <li>@Html.ActionLink("Diabetes", "", "")</li>
+            <li>@Html.ActionLink("Protien Diet & Vitamin", "", "")</li>
+            <li>@Html.ActionLink("Other", "", "")</li>
+        </ul>
+    </nav>
+    <div class="body-class">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Sustho.Com</p>
+        </footer>
+    </div>
+</body>
+</html>
