@@ -46,3 +46,6 @@ D:\OshudhwalaDotCom\OshudhwalaDotCom\obj\Debug\OshudhwalaDotCom.dll
 D:\OshudhwalaDotCom\OshudhwalaDotCom\obj\Debug\OshudhwalaDotCom.pdb
 D:\OshudhwalaDotCom\OshudhwalaDotCom\bin\Microsoft.AspNet.Identity.Core.dll
 D:\OshudhwalaDotCom\OshudhwalaDotCom\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Study\Project\OshudhwalaDotCom\OshudhwalaDotCom\obj\Debug\OshudhwalaDotCom.csprojResolveAssemblyReference.cache
+E:\Study\Project\OshudhwalaDotCom\OshudhwalaDotCom\obj\Debug\OshudhwalaDotCom.dll
+E:\Study\Project\OshudhwalaDotCom\OshudhwalaDotCom\obj\Debug\OshudhwalaDotCom.pdb
