@@ -48,9 +48,8 @@ namespace OshudhwalaDotCom.Core.DAL
             try
             {
                 SqlConnection.Open();
-                DynamicParameters dp = new DynamicParameters();
-                dp.Add("@id", id);
-                subCategoryList = SqlConnection.Query<SubCategory>("spGetCategory",new {dp}).ToList();
+                
+                subCategoryList = SqlConnection.Query<SubCategory>("spGetSubCategory '"+id+"'").ToList();
             }
             catch (Exception ex)
             {
@@ -68,9 +67,7 @@ namespace OshudhwalaDotCom.Core.DAL
             try
             {
                 SqlConnection.Open();
-                DynamicParameters dp = new DynamicParameters();
-                dp.Add("@id", id);
-                subSubCategoryList = SqlConnection.Query<SubSubCategory>("spGetSubSubCategory", new { dp }).ToList();
+                subSubCategoryList = SqlConnection.Query<SubSubCategory>("spGetSubSubCategory '" + id+"'").ToList();
             }
             catch (Exception ex)
             {

@@ -47,13 +47,13 @@ namespace OshudhwalaDotCom.Controllers
             }
             return Json(new SelectList(selectList, "Value", "Text"));
         }
-        private JsonResult SubSubCategoryList(int id)
+        public JsonResult SubSubCategoryList(int id)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
             selectList.Add(new SelectListItem { Value = "0", Text = "Please Select", Selected = true });
             foreach (SubSubCategory item in medicineManger.GetSubSubCategory(id))
             {
-                selectList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.SubSubCategoryName });
+                selectList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.SubSubCategroyName });
             }
             return Json(new SelectList(selectList, "Value", "Text"));
         }
