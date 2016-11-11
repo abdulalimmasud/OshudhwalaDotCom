@@ -11,21 +11,24 @@ namespace OshudhwalaDotCom.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage ="Please, Select a Category")]
-        public int Category { get; set; }
+        [DisplayName("Category")]
+        public int CategoryId { get; set; }
         [Required(ErrorMessage = "Please, Select a Sub Category")]
         [DisplayName("Sub Category")]
-        public int SubCategory { get; set; }
+        public int SubCategoryId { get; set; }
         [Required(ErrorMessage = "Please, Select a Sub Sub Category")]
         [DisplayName("Sub Sub Category")]
-        public int SubSubCategory { get; set; }
+        public int SubSubCategoryId { get; set; }
         [Required(ErrorMessage ="Please, Give your medicine title")]
-        public string Title { get; set; }
+        [DisplayName("Item")]
+        public string ItemName { get; set; }
         [DisplayName("Picture")]
-        [DataType(DataType.ImageUrl)]
-        public string Image { get; set; }
+        [DataType(DataType.Upload)]
+        public string Photo { get; set; }
         [Required(ErrorMessage ="Please, Give medicine price")]
         public double Price { get; set; }
-        public string Description { get; set; }
+        [DisplayName("Description")]
+        public string Details { get; set; }
         [Required(ErrorMessage = "Please, Select Yes or No")]
         [DisplayName("Is Medicine Danger")]
         public int IsDanger { get; set; }

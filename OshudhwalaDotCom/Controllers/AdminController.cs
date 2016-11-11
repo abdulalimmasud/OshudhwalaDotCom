@@ -2,6 +2,7 @@
 using OshudhwalaDotCom.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,18 +12,46 @@ namespace OshudhwalaDotCom.Controllers
     public class AdminController : Controller
     {
         MedicineManager medicineManger = new MedicineManager();
+        ItemManager itemManger = new ItemManager();
         // GET: Admin
         public ActionResult AddItem()
         {
             ViewBag.CategoryList = CategoryList();
             return View();
         }
-        [HttpPost]
-        public ActionResult AddItem([Bind(Include = "Category, SubCategory, SubSubCategory, Title, Price, Description, IsDanger")] Category category,[Bind(Include ="Image")] HttpPostedFileBase file)
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult AddItem([Bind(Include = "CategoryId, SubCategoryId, SubSubCategoryId, ItemName,Photo, Price, Details, IsDanger")] Item item)
         {
             if (ModelState.IsValid)
             {
-                
+                string imageUrl = "";
+                if(item.Photo != string.Empty)
+                {
+                    //var uploadDir = "/uploads";
+                    //var imagePath = Path.Combine(Server.MapPath(uploadDir), file.FileName);
+                    //imageUrl = Path.Combine(uploadDir, file.FileName);
+                    //file.SaveAs(imagePath);
+                    //item.Photo = imageUrl; 
+                    foreach (string file in Request.Files)
+                    {
+                        var postedFile = Request.Files[file];
+                        var uploadDir = "/uploads";
+                        var imagePath = Path.Combine(Server.MapPath(uploadDir), postedFile.FileName);
+                        imageUrl = Path.Combine(uploadDir, postedFile.FileName);
+                        postedFile.SaveAs(imagePath);                        
+                    }
+                }
+                item.Photo = imageUrl;
+                if (itemManger.IsItemInserted(item))
+                {
+                    ViewBag.Message = "Successful";
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Sorry";
+                }
             }
             ViewBag.CategoryList = CategoryList();
             return View();

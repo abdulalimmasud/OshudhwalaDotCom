@@ -157,9 +157,11 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Core\BLL\ItemManager.cs" />
     <Compile Include="Core\BLL\MedicineManager.cs" />
     <Compile Include="Core\BLL\PaymentManger.cs" />
     <Compile Include="Core\DAL\BaseGateway.cs" />
+    <Compile Include="Core\DAL\ItemGateway.cs" />
     <Compile Include="Core\DAL\MedicineGateway.cs" />
     <Compile Include="Core\DAL\PaymentGateway.cs" />
     <Compile Include="Global.asax.cs">

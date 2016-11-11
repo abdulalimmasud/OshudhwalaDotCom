@@ -115,16 +115,31 @@ insert into Medicine.Category(CategoryName) values(@Name)
 create proc spGetCategory
 as
 select Id, CategoryName from Medicine.Category
-
+go
 create proc spGetSubCategory
 @id int
 as
 select Id,SubCategoryName from Medicine.SubCategory where SubCategory.CategoryId=@id
-
+go
 create proc spGetSubSubCategory
 @id int
 as
 select Id,SubSubCategroyName from Medicine.SubSubCategory where SubCategoryId=@id
+go
+create proc spInsertItems
+@ItemName nvarchar(100),
+@Photo nvarchar(200),
+@Price float,
+@Details nvarchar(500),
+@SubSubCategoryId int,
+@SubCategoryId int,
+@CategoryId int,
+@IsDanger int
+as
+insert into Medicine.Items(ItemName,Photo,Price,Details,SubSubCategoryId,SubCategoryId,CategoryId,IsDanger)
+values(@ItemName,@Photo,@Price,@Details,@SubSubCategoryId,@SubCategoryId,@CategoryId,@IsDanger)
+
+select * from Medicine.Items
 
 spInsertCategory 'Baby & Mother'
 go
