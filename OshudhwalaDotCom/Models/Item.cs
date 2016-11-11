@@ -23,6 +23,7 @@ namespace OshudhwalaDotCom.Models
         [DisplayName("Item")]
         public string ItemName { get; set; }
         [DisplayName("Picture")]
+        //[FileTypes("jpg,jpeg,png,bmp,gif")]
         [DataType(DataType.Upload)]
         public string Photo { get; set; }
         [Required(ErrorMessage ="Please, Give medicine price")]

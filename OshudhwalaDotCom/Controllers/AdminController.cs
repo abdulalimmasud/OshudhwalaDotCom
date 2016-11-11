@@ -19,31 +19,26 @@ namespace OshudhwalaDotCom.Controllers
             ViewBag.CategoryList = CategoryList();
             return View();
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult AddItem([Bind(Include = "CategoryId, SubCategoryId, SubSubCategoryId, ItemName,Photo, Price, Details, IsDanger")] Item item)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddItem(Item item)
         {
+            HttpPostedFileBase file = Request.Files["Photo"];
+            //[Bind(Include = "CategoryId, SubCategoryId, SubSubCategoryId, ItemName, Photo, Price, Details, IsDanger")]
             if (ModelState.IsValid)
             {
-                string imageUrl = "";
-                if(item.Photo != string.Empty)
+                string imageUrl = @"E:\Study\Project\OshudhwalaDotCom\OshudhwalaDotCom\Image\Upload"+item.Photo;
+                //item.CategoryId = Convert.ToInt32(form["CategoryId"]);
+                if (file != null)
                 {
-                    //var uploadDir = "/uploads";
-                    //var imagePath = Path.Combine(Server.MapPath(uploadDir), file.FileName);
-                    //imageUrl = Path.Combine(uploadDir, file.FileName);
-                    //file.SaveAs(imagePath);
-                    //item.Photo = imageUrl; 
-                    foreach (string file in Request.Files)
-                    {
-                        var postedFile = Request.Files[file];
-                        var uploadDir = "/uploads";
-                        var imagePath = Path.Combine(Server.MapPath(uploadDir), postedFile.FileName);
-                        imageUrl = Path.Combine(uploadDir, postedFile.FileName);
-                        postedFile.SaveAs(imagePath);                        
-                    }
+                    file.SaveAs(imageUrl);
+                    item.Photo = imageUrl;
+
                 }
-                item.Photo = imageUrl;
+                else
+                {
+                    imageUrl = "";
+                }
                 if (itemManger.IsItemInserted(item))
                 {
                     ViewBag.Message = "Successful";
@@ -69,7 +64,7 @@ namespace OshudhwalaDotCom.Controllers
         public JsonResult SubCategoryList(int id)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            selectList.Add(new SelectListItem { Value = "0", Text = "Please Select", Selected = true });
+            selectList.Add(new SelectListItem { Value = "", Text = "Please Select", Selected = true });
             foreach (SubCategory item in medicineManger.GetSubCategory(id))
             {
                 selectList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.SubCategoryName });
@@ -79,7 +74,7 @@ namespace OshudhwalaDotCom.Controllers
         public JsonResult SubSubCategoryList(int id)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            selectList.Add(new SelectListItem { Value = "0", Text = "Please Select", Selected = true });
+            selectList.Add(new SelectListItem { Value = "", Text = "Please Select", Selected = true });
             foreach (SubSubCategory item in medicineManger.GetSubSubCategory(id))
             {
                 selectList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.SubSubCategroyName });

@@ -168,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\FileTypesAttribute.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\SubCategory.cs" />
