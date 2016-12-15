@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Online Medicine Shop">
+    <meta name="author" content="Osudhwala.com">
+    <title>Osudhwala- Assuring Acess to Medicine</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="../../Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+       <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+       <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    -->
+    <!-- Theme CSS -->
+    <link href="../../Content/agency.css" rel="stylesheet" />
+    <link href="../../Content/osudhwala.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.vertical-tabs.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" class="index">
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img class="header-logo" src="../../Image/assets/logo.png"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Medicine", "", "")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Request", "", "")
+                    </li>
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#myLogin">Login</a>
+                    </li>
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="main-body-render">
+
+
+        <!-- ============================================================================= -->
+        <!-- ===============================PAGE CONTENT STATRTS HERE====================== -->
+        <!-- ============================================================================= -->
+        @RenderBody()
+        <!-- ============================================================================= -->
+        <!-- ===============================PAGE CONTENT ENDS HERE====================== -->
+        <!-- ============================================================================= -->
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; OshudhWala 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li>
+                            <a href=""><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>
+                            <a href="">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">My Prescription</h4>
+                </div>
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width:10%;">#</th>
+                                <th style="width:40%;">Item Name</th>
+                                <th style="width:15%;">U. Prc</th>
+                                <th style="width:15%;">Unit</th>
+                                <th style="width:10%;">Total</th>
+                                <th style="width:10%;">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Napa</td>
+                                <td>2</td>
+                                <td><input class="form-control margin-none" type="number" min="1" value="1" required /></td>
+                                <td>CALC HERE</td>
+                                <td><button class="btn btn-danger btn-xs">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Napa</td>
+                                <td>2</td>
+                                <td><input class="form-control margin-none" type="number" min="1" value="1" required /></td>
+                                <td>CALC HERE</td>
+                                <td><button class="btn btn-danger btn-xs">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Napa</td>
+                                <td>2</td>
+                                <td><input class="form-control margin-none" type="number" min="1" value="1" required /></td>
+                                <td>CALC HERE</td>
+                                <td><button class="btn btn-danger btn-xs">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Napa</td>
+                                <td>2</td>
+                                <td><input class="form-control margin-none" type="number" value="1" required /></td>
+                                <td>CALC HERE</td>
+                                <td><button class="btn btn-danger btn-xs">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th colspan="4">Item Total</td>
+                                <th>CALC HERE</td>
+                                <th></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="myLogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                @using (Html.BeginForm("Login", "RegistrationLogin", FormMethod.Post, new { @id = "loginForm" }))
+                {
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label>Email</label>
+                        <input id="Email" name="Email" class="form-control margin-none" type="text" />
+                        <label>Password</label>
+                        <input class="form-control margin-none" id="Password" name="Password" type="password" />
+                        <button type="submit" class="btn btn-default" id="login">Login</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal end -->
+    <!-- Modal -->
+    <div id="alarmModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Medication Notification</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please take your medication now.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="okButton" class="btn btn-default" data-dismiss="modal">Taking it now!</button>
+                    <button type="button" id="laterButton" class="btn btn-default" data-dismiss="modal">Remind me in a while!</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="../../Scripts/jqBootstrapValidation.js"></script>
+    <script src="../../Scripts/contact_me.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="../../Scripts/agency.min.js"></script>
+    <script>
+        var myIntervalCall;
+        var startTime = "12:39:00";
+        var intervalhours = 8;
+
+        $(document).ready(function () {
+            alert();
+            $("#okButton").click(function () {
+                clearInterval(myIntervalCall);
+                document.title = "Homepage";
+                var shn = startTime.substr(0, 2);
+                var newhour = parseInt(shn) + intervalhours;
+                if (newhour > 24) {
+                    newhour = newhour - 24;
+                };
+                startTime = newhour.toString() + startTime.substr(2, 7);
+
+                timer(startTime, intervalhours);
+            });
+
+            $("#laterButton").click(function () {
+                clearInterval(myIntervalCall);
+                document.title = "Homepage";
+                myIntervalCall = setInterval(function () { $("#alarmModal").modal(); document.title = "(1) Medication Notification"; }, 10000);
+            });
+
+        });
+        timer(startTime, intervalhours);
+
+        function timer(startTime, intervalhours) {
+            var sh = startTime.substr(0, 2),
+                    sm = startTime.substr(3, 2);
+
+            myIntervalCall = setInterval(function () {
+                var d = new Date(),
+                    nh = d.getHours(),
+                    nm = d.getMinutes();
+
+                var diff1 = sh - nh,
+                    diff2 = sm - nm;
+
+                if (parseInt(diff1) > 0 && parseInt(diff1) > intervalhours) {
+
+                    sh = parseInt(sh) + parseInt(intervalhours);
+                    if (sh > 24) {
+                        sh = sh - 24;
+
+                    };
+
+                    var diff3 = parseInt(sh) - parseInt(nh);
+
+                    if (diff3 < 0) {
+                        sh = parseInt(sh) + parseInt(intervalhours);
+                        if (sh > 24) {
+                            sh = sh - 24;
+                        };
+                    };
+                };
+                if (diff1 < 0) {
+                    sh = parseInt(sh) + parseInt(intervalhours);
+                    if (sh > 24) {
+                        sh = sh - 24;
+
+                    };
+                    //  alert(sh);
+                };
+                if (diff1 === 0 && diff2 < 0) {
+                    sh = parseInt(sh) + parseInt(intervalhours);
+                    if (sh > 24) {
+                        sh = sh - 24;
+
+                    };
+                    // alert(sh);
+                };
+                if (diff1 === 0 && diff2 === 0) {
+                    document.title = "(1) Medication Notification";
+                    $("#alarmModal").modal()
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

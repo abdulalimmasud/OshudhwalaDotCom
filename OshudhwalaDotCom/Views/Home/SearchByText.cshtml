@@ -1,0 +1,68 @@
+﻿@model IEnumerable<OshudhwalaDotCom.Models.Item>
+
+@{
+    ViewBag.Title = "SearchByText";
+    Layout = "~/Views/Shared/_Shared.cshtml";
+}
+
+<section style="padding:50px">
+    <div class="container">
+        <div class="row text-center">
+            <h1>Medicine Page</h1>
+            <p>Search your desired medicine from below</p>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control">
+                <option>Select Group</option>
+                <option>Group 1</option>
+                <option>Group 2</option>
+                <option>Group 3</option>
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control">
+                <option>Select Sub-Group</option>
+                <option>Sub-Group 1</option>
+                <option>Sub-Group 2</option>
+                <option>Sub-Group 3</option>
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control">
+                <option>Select Category</option>
+                <option>Category 1</option>
+                <option>Category 2</option>
+                <option>Category 3</option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Medicine List</h2>
+            </div>
+            @foreach(var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6 product-pad text-center">
+                    <img class="img-circle img-responsive img-center" src="~/Image/Upload/ivcoverfarm.jpg" alt="">
+                    <h2 id="name-@item.Id">@Html.DisplayFor(modelItem => item.ItemName)</h2>
+                    <h3 id="price-@item.Id">Taka @Html.DisplayFor(modelItem => item.Price) /-</h3>
+                    <h4>@Html.DisplayFor(modelItem => item.Details)</h4>
+                    <a class="btn btn-success btn-sm" data-key="@Html.DisplayFor(modelItem => item.Id)">Add to Cart</a>                    
+                </div>
+            }                     
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script>
+    $('.btn-success').on('click', function () {
+        var itemId = parseInt($(this).attr("data-key"));
+        
+        var nameId = "#name-" + itemId;
+        var itemName = $(nameId).html();
+        var priceId = "#price-" + itemId;
+        var price = parseFloat($(priceId).html());
+        
+    })
+</script>

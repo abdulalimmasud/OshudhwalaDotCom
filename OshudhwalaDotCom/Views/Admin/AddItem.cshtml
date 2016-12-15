@@ -2,26 +2,29 @@
 
 @{
     ViewBag.Title = "AddItem";
-    Layout = "~/Views/Shared/Common.cshtml";
+    Layout = "~/Views/Shared/_Shared.cshtml";
     string message = ViewBag.Message ?? "";
     string errorMessage = ViewBag.ErrorMessage ?? "";
 }
 <script src="~/Scripts/jquery-1.9.1.min.js"></script>
 <h2>AddItem</h2>
 <style>
-    #imgDiv{
-        display:none;
-        max-height:500px;
-        max-width:500px;
+    #imgDiv {
+        display: none;
+        max-height: 500px;
+        max-width: 500px;
     }
-    #imageUpload{
-        max-height:500px;
-        max-width:500px;
+
+    #imageUpload {
+        max-height: 500px;
+        max-width: 500px;
     }
 </style>
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                                        new { enctype = "multipart/form-data", id = "formSubmit" }))
+{
 
-<form method="post" id="formSubmit">
-    @*@Html.AntiForgeryToken()*@
+    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h3 style="color:forestgreen">@message</h3><h3 style="color:red">@errorMessage</h3>
@@ -106,7 +109,8 @@
             </div>
         </div>
     </div>
-</form>
+}
+
 <script>
     $("#Category").change(function () {
         $("#SubCategory").empty();
@@ -115,7 +119,7 @@
             url: '@Url.Action("SubCategoryList")',
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ id: $('#Category').val() }),
-            async:false,
+            async: false,
             success: function (response) {
                 $.each(response, function (key, value) {
                     $("#SubCategory").append('<option value="' + value.Value + '">' + value.Text + '</option>')
@@ -166,26 +170,31 @@
         }
     });
     $("#formSubmit").on('submit', function () {
-                var that = $(this),
-                url = that.attr('action'),
-                method = that.attr('method'),
-                data = {};
+        var cId = $("#Category").val(),
+            sCId = $("#SubCategory").val(),
+            ssCId = $("#SubSubCategory").val();
+        var imageFile = $('#Photo')[0].files[0];
+        var that = $(this),
+        url = that.attr('action'),
+        method = that.attr('method'),
+        data = {};
 
-                that.find('[name]').each(function (index, value) {
-                    var that = $(this),
-                        name = that.attr('name'),
-                        value = that.val();
-                    data[name] = value;
-                });
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("AddItem")',
-                    dataType: 'json',
-                    data: JSON.stringify({ item: data }),
-                    success: function (response) {
-                        alert(response.success);
-                    }
-                })
-                return false;
-            })
+        that.find('[name]').each(function (index, value) {
+            var that = $(this),
+                name = that.attr('name'),
+                value = that.val();
+            data[name] = value;
+        });
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("AddItem")',
+            async:false,
+            dataType: 'json',
+            data: { item: data, categoryId: cId, sCategoryId: sCId, ssCategoryid: ssCId },
+            success: function (response) {
+                alert(response.success);
+            }
+        })
+        return false;
+    })
 </script>

@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "BKash";
-    Layout = "~/Views/Shared/Common.cshtml";
+    Layout = "~/Views/Shared/_Shared.cshtml";
 }
 
-<h2>BKash</h2>
+<h2 style="margin-left:10%">BKash</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -16,24 +16,24 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
                 @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransitionId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TransitionId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TransitionId, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.TransactionId, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.TransactionId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransactionId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="Confirm" class="btn btn-default" />
             </div>
         </div>
     </div>

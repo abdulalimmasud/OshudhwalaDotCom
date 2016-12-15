@@ -20,10 +20,10 @@ namespace OshudhwalaDotCom.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddItem(Item item)
+        public ActionResult AddItem(Item item,int categoryId, int sCategoryId, int ssCategoryid, HttpPostedFileBase  file)
         {
-            HttpPostedFileBase file = Request.Files["Photo"];
+            ////var file = item.Photo as HttpPostedFileBase;
+
             //[Bind(Include = "CategoryId, SubCategoryId, SubSubCategoryId, ItemName, Photo, Price, Details, IsDanger")]
             if (ModelState.IsValid)
             {

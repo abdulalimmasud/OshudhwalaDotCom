@@ -1,0 +1,124 @@
+.list-group-item{
+  background-color: transparent;
+}
+.modal-header{
+  background: #c0392b;
+  color: white;
+}
+.modal-footer{
+  background: antiquewhite;
+  color: black;
+}
+.margin-none{
+  margin:0px !important;
+}
+.product-pad{
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+.form-control{
+	margin:7px;
+}
+.img-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navbar-nav {
+    float: right;
+}
+.pushCenter{
+	text-align: center;
+}
+.affix .header-logo{
+	height: 60px;
+	margin-top: -15px;
+}
+.navbar-inverse .header-logo{
+	height: 50px;
+	margin-top: -15px;
+}
+.min-logo .header-logo{
+	height: 60px;
+	margin-top: -15px;
+}
+
+.navbar-inverse {
+  background-color: #16a085;
+  border-color: transparent;
+  margin-bottom: 50px;
+}
+.navbar-inverse .navbar-brand {
+  color: #fed136;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:active,
+.navbar-inverse .navbar-brand.active {
+  color: #fec503;
+}
+.navbar-inverse .navbar-collapse {
+  border-color: rgba(255, 255, 255, 0.02);
+}
+.navbar-inverse .navbar-toggle {
+  background-color: #fed136;
+  border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #fed136;
+}
+.navbar-inverse .nav li a {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+}
+.navbar-inverse .nav li a:hover,
+.navbar-inverse .nav li a:focus {
+  color: #fed136;
+  outline: none;
+}
+.navbar-inverse .navbar-nav > .active > a {
+  border-radius: 0;
+  color: white;
+  background-color: #fed136;
+}
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: white;
+  background-color: #fec503;
+}
+@media (min-width: 768px) {
+  .navbar-inverse .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-inverse .navbar-nav > .active > a {
+    border-radius: 3px;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-inverse.affix {
+    background-color: #16a085;
+    padding: 10px 0;
+  }
+  .navbar-inverse.affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 1000px) {
+  	.header-logo{
+		height: 60px;
+		margin-top: -15px;
+	}
+}

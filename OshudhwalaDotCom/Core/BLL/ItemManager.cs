@@ -14,5 +14,10 @@ namespace OshudhwalaDotCom.Core.BLL
         {
             return itemGateway.InsertItem(item) > 0 ? true : false;
         }
+
+        public List<Item> GetItemsByText(string text)
+        {
+            return itemGateway.GetItemsByText(text);
+        }
     }
 }

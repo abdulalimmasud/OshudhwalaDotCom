@@ -61,6 +61,7 @@ create table Person.Users
 	[Address] nvarchar(200),
 	UserType int foreign key references Person.[Type](Id)
 )
+alter table Person.Users add DateOfBirth varchar(12)
 go
 create table Person.Doctor
 (
@@ -138,6 +139,37 @@ create proc spInsertItems
 as
 insert into Medicine.Items(ItemName,Photo,Price,Details,SubSubCategoryId,SubCategoryId,CategoryId,IsDanger)
 values(@ItemName,@Photo,@Price,@Details,@SubSubCategoryId,@SubCategoryId,@CategoryId,@IsDanger)
+go
+create proc spGetItemLikeAs
+@text varchar(100)
+as
+select Id, ItemName,Photo, Price, Details, IsDanger from Medicine.Items where ItemName like @text+'%'
+go
+create proc spFilterItem
+@cId int,
+@sCId int,
+@ssCId int
+as
+select Id, ItemName,Photo, Price, Details, IsDanger from Medicine.Items where CategoryId=@cId or SubCategoryId=@sCId or SubSubCategoryId = @ssCId
+order by ItemName
+go
+create proc spInsertUser
+@Name varchar(50),
+@Email varchar(50),
+@Phone varchar(20),
+@Password nvarchar(25),
+@Address nvarchar(200),
+@DateOfBirth varchar(12)
+as
+insert Person.Users(Name,Email,Phone,[Password],[Address],DateOfBirth) values(@Name,@Email,@Phone,@Password,@Address,@DateOfBirth)
+
+select * from Person.Users
+
+
+spGetItemLikeAs 'ba'
+
+
+spInsertItems 'Babys Diapers','E:\Study\Project\OshudhwalaDotCom\OshudhwalaDotCom\Image\Upload\ivcoverfarm.jpg',70,'This is use for baby',1,1,1,0
 
 select * from Medicine.Items
 

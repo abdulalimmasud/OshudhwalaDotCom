@@ -12,6 +12,6 @@ namespace OshudhwalaDotCom.Models
         public int UserId { get; set; }
         [DisplayName("Transition No")]
         [Required(ErrorMessage ="Please Enter your payment transition no")]
-        public string  TransitionId { get; set; }
+        public string  TransactionId { get; set; }
     }
 }
